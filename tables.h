@@ -9,7 +9,8 @@
 
 class Table {
   public:
-    Table(std::string title);
+    Table(std::string columnName);
+    Table(std::vector<std::string> columnNames);
 
     void addRow(std::vector<std::string> s);
     std::vector<std::string> getRow(int index);

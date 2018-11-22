@@ -1,9 +1,7 @@
 #include "tables.h"
 
 int main(int argc, char *argv[]) {
-    Table table("Title");
-    table.addColumn(std::vector<std::string>(1, "Column Name"));
-    table.addColumn(std::vector<std::string>(1, "Column Name"));
+    Table table({"Title", "Column Name", "Column Name"});
     std::string arr[3][3] = {
         {"Something", "5", "Something but longer and cooler"},
         {"Something", "2", "Something normal"},

@@ -16,13 +16,22 @@ std::string centerText(std::string s, int w) {
     return t;
 }
 
-Table::Table(std::string title) {
+Table::Table(std::string columnName) {
     columns = 1;
     rows = 1;
     t = std::vector<std::vector<std::string> >(
-        1, std::vector<std::string>(1, title)
+        rows, std::vector<std::string>(columns, columnName)
     );
-    width = std::vector<int>(1, title.length() + 2);
+    width = std::vector<int>(columns, columnName.length() + 2);
+}
+
+Table::Table(std::vector<std::string> columnNames) {
+    columns = columnNames.size();
+    rows = 1;
+    t = std::vector<std::vector<std::string> >(rows, columnNames);
+    width = std::vector<int>(columns);
+    for(int i = 0; i < columns; ++i)
+        width[i] = columnNames[i].length() + 2;
 }
 
 void Table::addRow(std::vector<std::string> s) {
